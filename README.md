@@ -29,7 +29,6 @@ super class, sub class, etc.)
 
         @add_permits("3")
         def foo3(self):
-            """ Can only be 
             assert self.get_permits() == ["1", "2", "3"]
             self.r123() # only ok if called from a foo1, foo2 chain
 
