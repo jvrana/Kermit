@@ -14,18 +14,24 @@ super class, sub class, etc.)
 
         def secret_private_method(self);
 
-        @add_permits("2")
-        def foo12(self):
-            assert self.get_permits() == ["1", "2"]
+        @add_permits("1")
+        def foo1(self):
             self.r1()
-            self.r2()
-            self.r12()
-            self.foo123()
+            self.foo2()
+
+        @add_permits("2")
+        def foo2(self):
+            """ Can only be called if its called from foo1 """
+            assert self.get_permits() == ["1", "2"]
+            self.r1() # ok, if called from foo1
+            self.r2() # ok
+            foo3()
 
         @add_permits("3")
-        def foo123(self):
+        def foo3(self):
+            """ Can only be 
             assert self.get_permits() == ["1", "2", "3"]
-            self.r123()
+            self.r123() # only ok if called from a foo1, foo2 chain
 
         @require_permits("1")
         def r1(self):
@@ -35,7 +41,7 @@ super class, sub class, etc.)
         def r2(self):
             pass
 
-        @require_permits("1", "2")
-        def r12(self):
+        @require_permits("1", "2", "3", method="all", callback=None)
+        def r123(self):
             pass
 ```
