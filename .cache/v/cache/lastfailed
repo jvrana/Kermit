@@ -1,1 +1,15 @@
-{}
+{
+  "tests/test_permissions.py::test_any": true,
+  "tests/test_permissions.py::test_assign_inheritance": true,
+  "tests/test_permissions.py::test_for_remenant_permits_after_errors": true,
+  "tests/test_permissions.py::test_inheritance": true,
+  "tests/test_permissions.py::test_not_enough_permits": true,
+  "tests/test_permissions.py::test_simple_permission": true,
+  "tests/test_permits.py::test_add_multiple_premits": true,
+  "tests/test_permits.py::test_add_permits": true,
+  "tests/test_permits.py::test_class_mutator": true,
+  "tests/test_permits.py::test_destroy_permits": true,
+  "tests/test_permits.py::test_permit": true,
+  "tests/test_permits.py::test_permit_factory": true,
+  "tests/test_permits.py::test_remove_permits": true
+}

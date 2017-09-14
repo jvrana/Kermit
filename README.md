@@ -7,6 +7,11 @@ your *conventional* repo, but its *your* PyDad and you love him all the same.
 PyDad extends class methods to give methods various permissions (inside class, outside class,
 super class, sub class, etc.)
 
+<h1> Status </h1>
+Under construction...
+
+
+
 ```python
     class Foo(object):
         def __init__(self):
