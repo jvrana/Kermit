@@ -1,8 +1,8 @@
-<h1> PyDad </h1>
+<h1> PyPermissions </h1>
 
-PyDad is one cool repo. Strict and firm, but easy-going when needed. He doesn't always let you
-do what you want, but when he does, you must always ask for **permission**. PyDad may not be considered
-your *conventional* repo, but its *your* PyDad and you love him all the same.
+PyPermissions is one cool repo. Strict and firm, but easy-going when needed. He doesn't always let you
+do what you want, but when he does, you must always ask for **permission**. PyPermissions may not be considered
+your *conventional* repo, but its *your* PyPermissions and you love him all the same.
 
 PyDad extends class methods to give methods various permissions (inside class, outside class,
 super class, sub class, etc.)
