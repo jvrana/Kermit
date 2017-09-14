@@ -24,41 +24,59 @@ Very minimal. No requirements.
 
 <h3> Example </h3>
 ```python
-    class Foo(object):
-        def __init__(self):
-            pass
+    import kermit
 
-        @add_permits("1")
-        def foo1(self):
-            self.r1()
-            self.foo2()
+    class FrogStates(object):
+        ok_to_jump = 0
 
-        @add_permits("2")
-        def foo2(self):
-            """ Can only be called if its called from foo1 """
-            assert self.get_permits() == ["1", "2"]
-            self.r1() # ok, if called from foo1
-            self.r2() # ok
-            foo3()
+        @classmethod
+        def jump_permit(cls):
+            if FrogStates.ok_to_jump == 0:
+                return True
+            else:
+                return False
 
-        @add_permits("3")
-        def foo3(self):
-            assert self.get_permits() == ["1", "2", "3"]
-            try:
-                self.r123() # only ok if called from a foo1, foo2 chain
-            except PermissionError as e:
-                print("r123 must be called from methods with permissions 1, 2 and 3"!)
-                raise e
+    class Frog(object):
+        hop_permit = False
+        tipsy = False
 
-        @require_permits("1")
-        def r1(self):
-            pass
+        def __init__(self, name):
+            self.name = name
 
-        @require_permits("2")
-        def r2(self):
-            pass
+        @kermit.add(FrogStates.ok_to_jump)
+        def jump(self):
+            print("Jump!")
 
-        @require_permits("1", "2", "3", method="all", callback=None)
-        def r123(self):
-            pass
+        @kermit.add(hop_permit)
+        def hop(self):
+            print("Hop!")
+
+        @kermit.add(tipsy)
+        def secret(self):
+            return "I like Ms. Piggy"
+
+        @kermit.permits(tipsy)
+        def tell_secret(self):
+            print(self.secret())
+
+    # Kermit does not have permission to jump
+    f = Frog("Kermit")
+    f.jump() # nope
+    f.hop() # nope
+
+    # Allow Kermit to jump but not hop
+    FrogStates.ok_to_jump = 1
+    f.jump() # yup
+    f.hop() # nope
+
+    # Allow Kermit to hop
+    Frog.hop_permit = True
+    f.hop() # yup
+
+    # Allow Kermit to tell secret
+    f.secret() # nope
+    f.tell_secret() # nope
+    f.tipsy = True
+    f.secret() # nope
+    f.tell_secret() # yup
 ```
