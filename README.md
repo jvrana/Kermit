@@ -103,7 +103,7 @@ Require all permits
 @kermit.req.all("x", "y")
 def foo():
     pass
-    ```
+```
     
 Require any permit
 ```python
