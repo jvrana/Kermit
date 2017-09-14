@@ -54,15 +54,15 @@ Very minimal. No requirements.
         def __init__(self, name):
             self.name = name
 
-        @kermit.add(FrogStates.ok_to_jump)
+        @kermit.req(FrogStates.ok_to_jump)
         def jump(self):
             print("Jump!")
 
-        @kermit.add(hop_permit)
+        @kermit.req(hop_permit)
         def hop(self):
             print("Hop!")
 
-        @kermit.add(tipsy)
+        @kermit.req(tipsy)
         def secret(self):
             return "I like Ms. Piggy"
 
@@ -91,3 +91,45 @@ Very minimal. No requirements.
     f.secret() # nope
     f.tell_secret() # yup
 ```
+
+kermit.permits.add(permit1, permit2, ...) # add permits for this call stack. Removes added permits after call stack completes.
+kermit.permits.set(permit1, permit2, ...) # set permits for this call stack. Returns to original permits after call stack completes.
+kermit.req.all(permit1, permit2, ...) # requires prescences of all permits
+kermit.req.any(permit1, permit2, ...) # requires prescences of any permits
+
+Require all permits
+```python
+# require permits x and y
+@kermit.req.all("x", "y")
+def foo():
+    pass
+    ```
+    
+Require any permit
+```python
+# require permits x or y
+@kermit.req.any("x", "y")
+def foo():
+    pass
+```
+
+More complex logic if you need it.
+```python
+# (x | y) & (z & w)
+@kermit.req.any("x", "y")
+@kermit.req.all("z", "w")
+def foo():
+    pass
+```
+
+Inherit permits
+```python
+@kermit.permit.add("x")
+def foo():
+    # has permits "y" and "x" if called from bar()
+    # else has just permit "x" if called from elsewhere
+    
+@kermit.permit.add("y")
+def bar():
+    foo() # gets called with "x" and "y" permit
+    ```
