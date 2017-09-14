@@ -12,8 +12,6 @@ super class, sub class, etc.)
         def __init__(self):
             pass
 
-        def secret_private_method(self);
-
         @add_permits("1")
         def foo1(self):
             self.r1()
