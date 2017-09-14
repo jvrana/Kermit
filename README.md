@@ -1,10 +1,7 @@
 <h1> Kermit </h1>
 
-Kermit is a very small package extends class methods to give methods various permissions (inside class, outside class, super class, sub class, etc.)
-
 Kermit is one cool repo. Strict and firm, but easy-going when needed. He doesn't always let you
-do what you want, but when he does, you must always ask for **permission**. PyPermissions may not be considered
-your *conventional* repo, but its *your* PyPermissions and you love him all the same.
+do what you want, but when he does, you must always ask for a `KermitPermit`. Kermit is a very small package extends class methods to give methods various permissions (inside class, outside class, super class, sub class, etc.)
 
 <h3> Why "Kermit"? </h3>
 It rhymes with permit. It's fun to call `Kermit.Permit`
