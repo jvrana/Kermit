@@ -21,6 +21,7 @@ I know, its not pythonic. It may send shivers down some spins. I was recently wo
  * method permits
 
 <h3> Things you can do </h3>
+
  * inherit permissions in a call stack
  * set scopes for certain methods
  * set different permission states in which sets of methods are accessible/restricted
