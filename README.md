@@ -30,7 +30,11 @@ super class, sub class, etc.)
         @add_permits("3")
         def foo3(self):
             assert self.get_permits() == ["1", "2", "3"]
-            self.r123() # only ok if called from a foo1, foo2 chain
+            try:
+                self.r123() # only ok if called from a foo1, foo2 chain
+            except PermissionError as e:
+                print("r123 must be called from methods with permissions 1, 2 and 3"!)
+                raise e
 
         @require_permits("1")
         def r1(self):
