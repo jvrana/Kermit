@@ -113,10 +113,19 @@ def foo():
     pass
 ```
 
-More complex logic if you need it.
+More complex logic if you need it. Multiple decorators can be chained with implicit AND logic
 ```python
 # (x | y) & (z & w)
 @kermit.req.any("x", "y")
+@kermit.req.all("z", "w")
+def foo():
+    pass
+```
+
+Kermit.OR decorator can be used to chain with OR logic
+```python
+# (x & y) | (z & w)
+@kermit.req.all("x", "y").or  # adds OR logic
 @kermit.req.all("z", "w")
 def foo():
     pass
@@ -133,3 +142,5 @@ def foo():
 def bar():
     foo() # gets called with "x" and "y" permit
     ```
+
+**Feature Requests?**
