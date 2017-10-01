@@ -7,7 +7,7 @@ do what you want, but when he does, you must always ask for a `KermitPermit`. Ke
 It rhymes with permit. It's fun to call `Kermit.Permit`
 
 <h3> Why Python permissions? </h3>
-I know, its not pythonic. It may send shivers down some spins. I was recently working on a project with a few a classes in which I did not want to allow certain methods to be accessible at certain times. Dealing with alot of mixins was getting sloppy. The concept of permissions cleaned up the code.
+I know, its not pythonic. It may send shivers down some spines. I was recently working on a project with a few a classes in which I did not want to allow certain methods to be accessible at certain times. Dealing with alot of mixins was getting sloppy. The concept of permissions cleaned up the code.
 
 <h3> Features </h3>
 
