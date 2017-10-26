@@ -1,3 +1,7 @@
+<h1> Status: Dead  </h1>
+
+It was a programming experiment. Modules ended up not being usefull.
+
 <h1> Kermit </h1>
 
 Kermit is one cool repo. Strict and firm, but flexible when needed. He doesn't always let you
